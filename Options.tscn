@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj5uon6afwrwp"]
+
+[ext_resource type="Script" path="res://Options.gd" id="1_pcaed"]
+[ext_resource type="Texture2D" uid="uid://c5tlhtqteehbo" path="res://assets/maps/jungle/elementy/dzień.png" id="2_omqt4"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcaed")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 125.0
+offset_bottom = 117.0
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="SomeOtherOption" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Placeholder"
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Dzień" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(903, 417)
+scale = Vector2(1.76172, 1.38519)
+texture = ExtResource("2_omqt4")

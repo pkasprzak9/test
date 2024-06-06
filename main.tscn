@@ -1,0 +1,1535 @@
+[gd_scene load_steps=53 format=3 uid="uid://cg03k1dehribx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_jkabv"]
+[ext_resource type="Script" path="res://Player.gd" id="1_prtc3"]
+[ext_resource type="PackedScene" uid="uid://bl5kapnv2uj7w" path="res://background.tscn" id="1_u2vdl"]
+[ext_resource type="Texture2D" uid="uid://4ruxa0v3i30r" path="res://assets/Player/graphics/player.png" id="2_fd1px"]
+[ext_resource type="Texture2D" uid="uid://by2irjacnum3n" path="res://assets/maps/jungle/elementy/ziemia.png" id="3_niuse"]
+[ext_resource type="Texture2D" uid="uid://baswg5lvo0cac" path="res://assets/maps/jungle/elementy/ziemia5.png" id="4_dra2d"]
+[ext_resource type="Texture2D" uid="uid://b4vuxvfn1v21r" path="res://assets/Player/sprites/player_jump_sheet.png" id="5_irtui"]
+[ext_resource type="Texture2D" uid="uid://d01cx4mo54i5x" path="res://assets/maps/jungle/elementy/ziemia3.png" id="5_mknrm"]
+[ext_resource type="AudioStream" uid="uid://c5syf6ew4gxqv" path="res://Sounds/Universal/Running.wav" id="5_pc7jp"]
+[ext_resource type="Texture2D" uid="uid://cmsx7ggjnxdc5" path="res://assets/Player/sprites/player_run_sheet.png" id="5_veon4"]
+[ext_resource type="Texture2D" uid="uid://cm4rv3rsl5lh8" path="res://assets/maps/jungle/elementy/roślinka.png" id="6_3x1xl"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="6_a42cw"]
+[ext_resource type="Script" path="res://AnimatedSprite2D.gd" id="6_cssrt"]
+[ext_resource type="AudioStream" uid="uid://bswfrt2ebq1fs" path="res://Sounds/Universal/Jump.wav" id="6_ddr48"]
+[ext_resource type="Texture2D" uid="uid://jn3jlijbcmjq" path="res://assets/maps/jungle/elementy/paprocie.png" id="7_qx1yb"]
+[ext_resource type="Texture2D" uid="uid://djofmrvartqr5" path="res://assets/maps/jungle/elementy/drzewo.png" id="8_ng8ug"]
+[ext_resource type="Texture2D" uid="uid://c2wi0mm3ior7e" path="res://assets/maps/jungle/elementy/palma.png" id="9_kjae0"]
+[ext_resource type="Texture2D" uid="uid://0wptqqhc04c0" path="res://assets/maps/jungle/elementy/pień.png" id="10_yc7hs"]
+[ext_resource type="Texture2D" uid="uid://cq2aw5m318bww" path="res://assets/maps/jungle/elementy/liście.png" id="11_ga0nx"]
+[ext_resource type="Texture2D" uid="uid://buj07da2pnlp7" path="res://assets/maps/jungle/elementy/ziemia2.png" id="12_nuthn"]
+[ext_resource type="Script" path="res://Control.gd" id="18_qwoum"]
+[ext_resource type="PackedScene" uid="uid://5305gbuece1t" path="res://caps.tscn" id="19_4w8av"]
+[ext_resource type="Texture2D" uid="uid://b184nchrj64mo" path="res://assets/interface/gameover_placeholder.jpg" id="20_taow1"]
+[ext_resource type="Script" path="res://SoundManager.gd" id="23_r1k2l"]
+[ext_resource type="AudioStream" uid="uid://bfco3g1rjpouh" path="res://Sounds/Universal/game_over.wav" id="24_1hx5q"]
+[ext_resource type="Script" path="res://MusicManager.gd" id="25_y48dj"]
+[ext_resource type="PackedScene" uid="uid://fcqusu81u3xy" path="res://crocodile.tscn" id="26_i84x5"]
+[ext_resource type="AudioStream" uid="uid://drifvwhbatowl" path="res://Sounds/Universal/Coin.wav" id="27_5ibfc"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="28_72e0o"]
+[ext_resource type="Script" path="res://OptionsButtonContainer.gd" id="28_aov27"]
+[ext_resource type="AudioStream" uid="uid://c3ihw0hpix2aq" path="res://Sounds/Jungle/Background.wav" id="28_kg43j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87quv"]
+size = Vector2(110, 152.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6h70"]
+atlas = ExtResource("5_irtui")
+region = Rect2(0, 0, 158, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8klgl"]
+atlas = ExtResource("5_irtui")
+region = Rect2(158, 0, 158, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyt3v"]
+atlas = ExtResource("5_irtui")
+region = Rect2(316, 0, 158, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2l0b"]
+atlas = ExtResource("5_irtui")
+region = Rect2(474, 0, 158, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr2hk"]
+atlas = ExtResource("5_veon4")
+region = Rect2(0, 0, 157, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmfbf"]
+atlas = ExtResource("5_veon4")
+region = Rect2(157, 0, 157, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpwk3"]
+atlas = ExtResource("5_veon4")
+region = Rect2(314, 0, 157, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnmg1"]
+atlas = ExtResource("5_veon4")
+region = Rect2(471, 0, 157, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dxil"]
+atlas = ExtResource("5_veon4")
+region = Rect2(628, 0, 157, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar8ch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6h70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8klgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyt3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2l0b")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr2hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmfbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpwk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnmg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dxil")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y0t3"]
+size = Vector2(475.5, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdgeh"]
+size = Vector2(611.893, 1018.67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0kkd"]
+size = Vector2(190.222, 570.614)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jke17"]
+size = Vector2(164, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ld7c"]
+size = Vector2(475.5, 337)
+
+[sub_resource type="GDScript" id="GDScript_6iv0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8oc"]
+size = Vector2(657.462, 76.8571)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a153t"]
+size = Vector2(474.5, 325.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73045"]
+size = Vector2(476.5, 271.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6n5c"]
+size = Vector2(142.5, 104.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jkabv")
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_prtc3")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(758, 202)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 6.0
+script = ExtResource("6_a42cw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(754, 276.25)
+shape = SubResource("RectangleShape2D_87quv")
+
+[node name="Stary-mlodyKolor" type="Sprite2D" parent="Player/CollisionShape2D"]
+visible = false
+position = Vector2(143, 1.75)
+texture = ExtResource("2_fd1px")
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("5_pc7jp")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("6_ddr48")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(743, 271)
+sprite_frames = SubResource("SpriteFrames_ar8ch")
+animation = &"jump"
+script = ExtResource("6_cssrt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("28_72e0o")
+
+[node name="OptionsButtonContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("28_aov27")
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/OptionsButtonContainer"]
+z_index = 4
+layout_mode = 0
+offset_left = -39.0
+offset_top = 6.0
+offset_right = 31.0
+offset_bottom = 37.0
+text = "Options"
+
+[node name="Background" parent="." instance=ExtResource("1_u2vdl")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Crocodile" parent="Enemies" instance=ExtResource("26_i84x5")]
+position = Vector2(4032, 48)
+collision_mask = 3
+
+[node name="Crocodile2" parent="Enemies" instance=ExtResource("26_i84x5")]
+position = Vector2(6932, 489)
+collision_mask = 3
+
+[node name="Trawa" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa"]
+position = Vector2(749, 484)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa/CollisionShape2D/Ziemia"]
+position = Vector2(16.5, 80)
+rotation = -3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa2" type="StaticBody2D" parent="."]
+position = Vector2(478, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa2"]
+position = Vector2(750.25, 483)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa2/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa2/CollisionShape2D/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa3" type="StaticBody2D" parent="."]
+position = Vector2(948, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa3"]
+position = Vector2(755, 485)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia5" type="Sprite2D" parent="Trawa3/CollisionShape2D"]
+z_index = -1
+position = Vector2(-8, -64)
+texture = ExtResource("4_dra2d")
+
+[node name="Ziemia5" type="Sprite2D" parent="Trawa3/CollisionShape2D/Ziemia5"]
+position = Vector2(37, 150)
+rotation = 3.14159
+texture = ExtResource("4_dra2d")
+
+[node name="leftWorldBarrier" type="StaticBody2D" parent="."]
+position = Vector2(-985, -202)
+scale = Vector2(1.3, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftWorldBarrier"]
+position = Vector2(752.27, -104.788)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_sdgeh")
+
+[node name="Ziemia" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(756.154, 485.385)
+scale = Vector2(1.69, 1.69)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(753.847, 338.462)
+rotation = 3.14159
+scale = Vector2(1.69745, 1.69868)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia3" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(751.539, 194.615)
+scale = Vector2(1.70494, 1.7074)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia4" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(753.847, 48.4615)
+rotation = 3.14158
+scale = Vector2(1.69633, 1.66826)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia5" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(872.872, -675.653)
+rotation = 3.14158
+scale = Vector2(2.20523, 2.16873)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia6" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(875.886, -487.111)
+rotation = -1.7703e-05
+scale = Vector2(2.21495, 2.17987)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia7" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(878.9, -302.517)
+rotation = 3.14157
+scale = Vector2(2.22472, 2.19106)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia8" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(875.891, -114.961)
+rotation = -2.63785e-05
+scale = Vector2(2.21349, 2.14083)
+texture = ExtResource("3_niuse")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="leftWorldBarrier"]
+visible = false
+position = Vector2(1280.57, -396.793)
+scale = Vector2(1.3, 1.3)
+shape = SubResource("RectangleShape2D_u0kkd")
+
+[node name="Ziemia9" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(1283.08, -3.84616)
+rotation = 3.14159
+scale = Vector2(0.903212, 0.895396)
+texture = ExtResource("5_mknrm")
+
+[node name="Roślinka" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(1170.77, 423.846)
+rotation = 1.57079
+scale = Vector2(1.27508, 1.18684)
+texture = ExtResource("6_3x1xl")
+
+[node name="Paprocie" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(1209.23, 291.538)
+rotation = 1.57079
+scale = Vector2(0.769231, 0.769231)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia10" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(762.782, 1064.11)
+scale = Vector2(1.69, 1.69)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia11" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(760.475, 917.19)
+rotation = 3.14159
+scale = Vector2(1.69745, 1.69868)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia12" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(758.167, 773.343)
+scale = Vector2(1.70494, 1.7074)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia13" type="Sprite2D" parent="leftWorldBarrier"]
+position = Vector2(760.475, 627.19)
+rotation = 3.14158
+scale = Vector2(1.69633, 1.66826)
+texture = ExtResource("3_niuse")
+
+[node name="Drzewo" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1189, 312)
+texture = ExtResource("8_ng8ug")
+
+[node name="Palma" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(719, 313)
+texture = ExtResource("9_kjae0")
+
+[node name="Pień" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pień"]
+visible = false
+position = Vector2(955, 396.5)
+shape = SubResource("RectangleShape2D_jke17")
+
+[node name="Pień" type="Sprite2D" parent="Pień"]
+position = Vector2(1065, 405)
+texture = ExtResource("10_yc7hs")
+
+[node name="Pień2" type="StaticBody2D" parent="Pień"]
+position = Vector2(4139, -522)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pień/Pień2"]
+visible = false
+position = Vector2(955, 396.5)
+shape = SubResource("RectangleShape2D_jke17")
+
+[node name="Pień" type="Sprite2D" parent="Pień/Pień2"]
+position = Vector2(1065, 405)
+texture = ExtResource("10_yc7hs")
+
+[node name="Trawa4" type="StaticBody2D" parent="."]
+position = Vector2(-107, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa4"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa4"]
+z_index = -2
+position = Vector2(2472, -76)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa4"]
+z_index = -2
+position = Vector2(2277, -24)
+texture = ExtResource("7_qx1yb")
+
+[node name="Trawa4" type="StaticBody2D" parent="Trawa4"]
+position = Vector2(477, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa4/Trawa4"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4/Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4/Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa4/Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa4/Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa4/Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa4/Trawa4"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa4/Trawa4"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Liście" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2511, 197)
+texture = ExtResource("11_ga0nx")
+
+[node name="Trawa5" type="StaticBody2D" parent="."]
+position = Vector2(849, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa5"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa5/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa5"]
+z_index = -2
+position = Vector2(2246, -47)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa5"]
+z_index = -2
+position = Vector2(2529, -6)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Trawa4" type="StaticBody2D" parent="Trawa5"]
+position = Vector2(477, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa5/Trawa4"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5/Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5/Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa5/Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa5/Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa5/Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa5/Trawa4"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa5/Trawa4"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa5/Trawa4"]
+z_index = -1
+position = Vector2(1760, 67)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="Trawa6" type="StaticBody2D" parent="."]
+position = Vector2(1803, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa6"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa6"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa6/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa6/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa6/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa7" type="StaticBody2D" parent="."]
+position = Vector2(2280, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa7"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa7"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa7/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa7/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa7/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa8" type="StaticBody2D" parent="."]
+position = Vector2(3323, -113)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa8"]
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa8"]
+z_index = -1
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa8/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa8/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa8/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Liście2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4267, 192)
+texture = ExtResource("11_ga0nx")
+
+[node name="Drzewo2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4669, 115)
+texture = ExtResource("8_ng8ug")
+
+[node name="Palma2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4445, 122)
+texture = ExtResource("9_kjae0")
+
+[node name="Roślinka" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4040, 206)
+texture = ExtResource("6_3x1xl")
+
+[node name="Palma3" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(4517, -247)
+scale = Vector2(1.19397, 1.3557)
+texture = ExtResource("9_kjae0")
+
+[node name="Liście3" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(4480, -115)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ga0nx")
+
+[node name="Trawa9" type="StaticBody2D" parent="."]
+position = Vector2(2756, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa9"]
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa9"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa9/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa9/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa9/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa9"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa9"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa9"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Trawa10" type="StaticBody2D" parent="."]
+position = Vector2(3648, -246)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa10"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa10"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa10/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa10/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa10/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa11" type="StaticBody2D" parent="."]
+position = Vector2(3231, 194)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa11"]
+position = Vector2(2317, 225)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa11/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa11"]
+z_index = -2
+position = Vector2(2246, -47)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa11"]
+z_index = -2
+position = Vector2(2529, -6)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Trawa4" type="StaticBody2D" parent="Trawa11"]
+position = Vector2(477, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa11/Trawa4"]
+position = Vector2(2315, 225)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11/Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11/Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa11/Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa11/Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa11/Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa11/Trawa4"]
+z_index = -2
+position = Vector2(2288, -21)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa11/Trawa4"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Trawa12" type="StaticBody2D" parent="."]
+position = Vector2(4186, 85)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa12"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa12"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa12/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa12/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa12/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa12"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa12"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa12"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa12"]
+z_index = -2
+position = Vector2(1773, 176)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="Trawa13" type="StaticBody2D" parent="."]
+position = Vector2(16, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa13"]
+position = Vector2(749, 484)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa13/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa13/CollisionShape2D/Ziemia"]
+position = Vector2(16.5, 80)
+rotation = -3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa14" type="StaticBody2D" parent="."]
+position = Vector2(491, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa14"]
+position = Vector2(749, 484)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa14/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa14/CollisionShape2D/Ziemia"]
+position = Vector2(16.5, 80)
+rotation = -3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa15" type="StaticBody2D" parent="."]
+position = Vector2(961, 163)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa15"]
+position = Vector2(749, 484)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa15/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa15/CollisionShape2D/Ziemia"]
+position = Vector2(16.5, 80)
+rotation = -3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa16" type="StaticBody2D" parent="."]
+position = Vector2(1438, 132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa16"]
+position = Vector2(749, 484)
+shape = SubResource("RectangleShape2D_8y0t3")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa16/CollisionShape2D"]
+position = Vector2(1.5, 0)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa16/CollisionShape2D/Ziemia"]
+position = Vector2(16.5, 80)
+rotation = -3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Trawa17" type="StaticBody2D" parent="."]
+position = Vector2(4178, 419)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa17"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa17"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa17/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa17/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa17/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa17"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa17"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa17"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa17"]
+z_index = -2
+position = Vector2(1773, 176)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_qwoum")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1710.0
+offset_top = 16.0
+offset_right = 1765.0
+offset_bottom = 39.0
+text = "Caps: 0"
+
+[node name="DeathLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="DeathScreen" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -104.0
+offset_top = 1.0
+offset_right = 1792.0
+offset_bottom = 826.0
+texture = ExtResource("20_taow1")
+expand_mode = 1
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("24_1hx5q")
+volume_db = 24.0
+
+[node name="Cap" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(959, 304)
+
+[node name="SoundManager" type="Node2D" parent="."]
+script = ExtResource("23_r1k2l")
+
+[node name="CollectSoundPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource("27_5ibfc")
+volume_db = 9.143
+script = SubResource("GDScript_6iv0x")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_kg43j")
+volume_db = -8.792
+script = ExtResource("25_y48dj")
+
+[node name="Cap2" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(1545, 382)
+
+[node name="Cap4" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(1711, 379)
+
+[node name="Cap3" parent="Cap4" groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(-81, 3)
+
+[node name="Cap5" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(1792, 377)
+
+[node name="Cap6" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(4478, -156)
+
+[node name="Cap7" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(4804, -326)
+
+[node name="Trawa18" type="StaticBody2D" parent="."]
+position = Vector2(5082, -127)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa18"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa18"]
+z_index = -1
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa18/Ziemia"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa18/Ziemia"]
+z_index = -1
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa18/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa18"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa18"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa18"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa18"]
+z_index = -2
+position = Vector2(1773, 176)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trawa18"]
+visible = false
+position = Vector2(1858.27, 217.419)
+scale = Vector2(0.790084, 1.31624)
+shape = SubResource("RectangleShape2D_1q8oc")
+
+[node name="Cap8" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6789, 196)
+
+[node name="Cap9" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6853, 196)
+
+[node name="Cap10" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6917, 196)
+
+[node name="Cap11" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6982, 196)
+
+[node name="Cap12" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(7046, 196)
+
+[node name="Cap13" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(7109, 196)
+
+[node name="Cap14" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(7685, 30)
+
+[node name="Cap15" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(7685, 144)
+
+[node name="Trawa19" type="StaticBody2D" parent="."]
+position = Vector2(5128, 392)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa19"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa19"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa19/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa19/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa19/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa19"]
+z_index = -1
+position = Vector2(1792, -25)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa19"]
+z_index = -1
+position = Vector2(2510, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa19"]
+z_index = -1
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa19"]
+z_index = -2
+position = Vector2(1773, 176)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trawa19"]
+visible = false
+position = Vector2(1858.27, 217.419)
+scale = Vector2(0.790084, 1.31624)
+shape = SubResource("RectangleShape2D_1q8oc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Trawa19"]
+visible = false
+position = Vector2(2316.75, 217.25)
+shape = SubResource("RectangleShape2D_a153t")
+
+[node name="Trawa20" type="StaticBody2D" parent="."]
+position = Vector2(6088, 281)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa20"]
+visible = false
+position = Vector2(2318.25, 223.5)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa20"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa20/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa20/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa20/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(0.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa20"]
+z_index = -2
+position = Vector2(2173, -134)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa20"]
+z_index = -2
+position = Vector2(2463, -65)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa20"]
+z_index = -2
+position = Vector2(2350, -25)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa20"]
+z_index = -2
+position = Vector2(1769, 180)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="Ziemia3" type="Sprite2D" parent="Trawa20"]
+position = Vector2(1843, 399)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa20/Ziemia3"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Trawa20"]
+visible = false
+position = Vector2(1838.75, 305.25)
+shape = SubResource("RectangleShape2D_73045")
+
+[node name="Pień2" type="Sprite2D" parent="Trawa20"]
+position = Vector2(1946, 126)
+texture = ExtResource("10_yc7hs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Trawa20"]
+visible = false
+position = Vector2(1839.75, 137.75)
+shape = SubResource("RectangleShape2D_u6n5c")
+
+[node name="Trawa21" type="StaticBody2D" parent="."]
+position = Vector2(6565, 280.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa21"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa21/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa21"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa21"]
+z_index = -2
+position = Vector2(2472, -76)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa21"]
+z_index = -2
+position = Vector2(2277, -24)
+texture = ExtResource("7_qx1yb")
+
+[node name="Trawa4" type="StaticBody2D" parent="Trawa21"]
+position = Vector2(477, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa21/Trawa4"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21/Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21/Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa21/Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa21/Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa21/Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa21/Trawa4"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa21/Trawa4"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Liście4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(9183, 282.5)
+texture = ExtResource("11_ga0nx")
+
+[node name="Trawa22" type="StaticBody2D" parent="."]
+position = Vector2(7521, 280.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa22"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa22/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa22"]
+z_index = -2
+position = Vector2(2246, -47)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa22"]
+z_index = -2
+position = Vector2(2529, -6)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Trawa4" type="StaticBody2D" parent="Trawa22"]
+position = Vector2(477, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trawa22/Trawa4"]
+visible = false
+position = Vector2(2316.5, 224)
+shape = SubResource("RectangleShape2D_7ld7c")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22/Trawa4"]
+position = Vector2(2312.5, 259)
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22/Trawa4/Ziemia"]
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa22/Trawa4/Ziemia"]
+position = Vector2(5, -85)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Ziemia" type="Sprite2D" parent="Trawa22/Trawa4/Ziemia/Ziemia2"]
+z_index = -1
+position = Vector2(1.5, 80)
+rotation = 3.14159
+texture = ExtResource("3_niuse")
+
+[node name="Palma2" type="Sprite2D" parent="Trawa22/Trawa4"]
+z_index = -2
+position = Vector2(2367, -136)
+scale = Vector2(1.51724, 1.48322)
+texture = ExtResource("9_kjae0")
+
+[node name="Palma3" type="Sprite2D" parent="Trawa22/Trawa4"]
+z_index = -2
+position = Vector2(2291, -73)
+texture = ExtResource("9_kjae0")
+flip_h = true
+
+[node name="Paprocie" type="Sprite2D" parent="Trawa22/Trawa4"]
+z_index = -2
+position = Vector2(2382, -27)
+texture = ExtResource("7_qx1yb")
+
+[node name="Ziemia2" type="Sprite2D" parent="Trawa22/Trawa4"]
+z_index = -1
+position = Vector2(1760, 67)
+scale = Vector2(0.790084, 1.31624)
+texture = ExtResource("12_nuthn")
+
+[node name="Cap19" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6141, 186)
+
+[node name="Cap18" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6077, 186)
+
+[node name="Cap17" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6013, 186)
+
+[node name="Cap20" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(8711, 259)
+
+[node name="Cap24" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6577, 80)
+
+[node name="Cap23" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6513, 80)
+
+[node name="Cap22" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6449, 80)
+
+[node name="Cap25" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(8647, 259)
+
+[node name="Cap26" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(8583, 259)
+
+[node name="Cap27" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(8519, 259)
+
+[node name="Cap21" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(6385, 80)
+
+[node name="Cap16" parent="." groups=["caps"] instance=ExtResource("19_4w8av")]
+position = Vector2(5949, 186)
+
+[connection signal="player_died" from="Player" to="Player/RunningSound" method="play"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl5kapnv2uj7w"]
+
+[ext_resource type="Script" path="res://background.gd" id="1_35ay6"]
+[ext_resource type="Texture2D" uid="uid://dv8wp6547lavk" path="res://assets/maps/jungle/tło i otoczenie/rano.png" id="1_ud0yf"]
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_35ay6")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(3550, 2000)
+
+[node name="Rano" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(2283.84, 834)
+scale = Vector2(4.61688, 3.48086)
+texture = ExtResource("1_ud0yf")

@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://fcqusu81u3xy"]
+
+[ext_resource type="Script" path="res://crocodile.gd" id="1_5dum0"]
+[ext_resource type="Texture2D" uid="uid://qrvj0gfi63s6" path="res://assets/maps/jungle/elementy/krokodyl/krok3.png" id="1_8x824"]
+[ext_resource type="Texture2D" uid="uid://csrjuqr1b3c1j" path="res://assets/maps/jungle/elementy/krokodyl/krok2.png" id="2_m1rgp"]
+[ext_resource type="Texture2D" uid="uid://dgqeaipcii6hh" path="res://assets/maps/jungle/elementy/krokodyl/krok1.png" id="3_fdr2k"]
+[ext_resource type="Texture2D" uid="uid://c6svcky8hn3ny" path="res://assets/maps/jungle/elementy/krokodyl/krok4.png" id="4_3ts2y"]
+[ext_resource type="Texture2D" uid="uid://cgedtb2i37i7t" path="res://assets/maps/jungle/elementy/krokodyl/krok5.png" id="5_bfahx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ylnfh"]
+radius = 24.0
+height = 272.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6dn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8x824")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m1rgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fdr2k")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fdr2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m1rgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_8x824")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ts2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bfahx")
+}],
+"loop": true,
+"name": &"calm",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7eyj7"]
+radius = 1181.11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n2g0"]
+size = Vector2(171.429, 142.857)
+
+[node name="Crocodile" type="CharacterBody2D"]
+script = ExtResource("1_5dum0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ylnfh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.90735e-06, -1.90735e-06)
+scale = Vector2(3.1125, 3.1125)
+sprite_frames = SubResource("SpriteFrames_f6dn1")
+animation = &"calm"
+frame_progress = 0.476028
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+visible = false
+position = Vector2(-1.13687e-13, 1.90735e-06)
+scale = Vector2(0.42, 0.42)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_7eyj7")
+
+[node name="PlayerDeath" type="Area2D" parent="."]
+position = Vector2(-1.13687e-13, 1.90735e-06)
+scale = Vector2(0.42, 0.42)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
+position = Vector2(28.5714, -23.8095)
+shape = SubResource("RectangleShape2D_4n2g0")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://5305gbuece1t"]
+
+[ext_resource type="Script" path="res://Area2D.gd" id="1_bya1i"]
+[ext_resource type="Texture2D" uid="uid://clh4heg3dt1hh" path="res://assets/interface/caps.png" id="2_j4lvw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8h66"]
+radius = 26.0
+
+[node name="Cap" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_bya1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+shape = SubResource("CircleShape2D_g8h66")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_j4lvw")
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="Area2D"]
+volume_db = 24.0
